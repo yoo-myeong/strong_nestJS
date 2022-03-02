@@ -1,11 +1,20 @@
+import { SuccessInterceptor } from './../common/interceptors/success.interceptor';
 import { LoginRequestDto } from './../auth/dto/login.request.dto';
-import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AuthService } from 'src/auth/auth.service';
 import { CatsService } from './cats.service';
 import { CatRequestDto } from './dto/casts.request.dto';
 import { CatDto } from './dto/cats.dto';
 
+@UseInterceptors(SuccessInterceptor)
 @Controller('cats')
 export class CatsController {
   constructor(
