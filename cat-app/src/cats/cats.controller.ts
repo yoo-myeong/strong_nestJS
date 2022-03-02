@@ -1,5 +1,5 @@
 import { LoginRequestDto } from './../auth/dto/login.request.dto';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AuthService } from 'src/auth/auth.service';
 import { CatsService } from './cats.service';
@@ -25,11 +25,17 @@ export class CatsController {
     type: CatDto,
   })
   @ApiOperation({ summary: '회원가입' })
+  @HttpCode(200)
   @Post('signup')
   async signup(@Body() body: CatRequestDto) {
     return await this.catsServoce.signup(body);
   }
 
+  @ApiResponse({
+    status: 201,
+    description: '성공',
+    type: CatDto,
+  })
   @ApiOperation({ summary: '로그인' })
   @Post('login')
   login(@Body() data: LoginRequestDto) {
