@@ -25,8 +25,8 @@ export class Cat extends Document {
   email: string;
 
   @ApiProperty({
-    example: 'abcd1234',
-    description: 'password',
+    example: 'james',
+    description: 'name',
     required: true,
   })
   @Prop({
@@ -37,8 +37,8 @@ export class Cat extends Document {
   name: string;
 
   @ApiProperty({
-    example: 'james',
-    description: 'name',
+    example: 'abcd1234',
+    description: 'password',
     required: true,
   })
   @Prop({

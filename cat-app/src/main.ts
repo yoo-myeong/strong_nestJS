@@ -14,7 +14,7 @@ async function bootstrap() {
     .addTag('cats')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup('api', app, document);
 
   const port = process.env.PORT;
   app.enableCors({
