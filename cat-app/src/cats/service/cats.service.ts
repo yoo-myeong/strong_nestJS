@@ -1,8 +1,7 @@
+import { CatRequestDto } from './../dto/casts.request.dto';
+import { CatsRepository } from 'src/cats/cats.repository';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { CatRequestDto } from './dto/casts.request.dto';
-import { CatsRepository } from './cats.repository';
-
 @Injectable()
 export class CatsService {
   constructor(private readonly catRepository: CatsRepository) {}
