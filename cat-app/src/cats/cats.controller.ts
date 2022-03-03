@@ -1,3 +1,5 @@
+import { Cat } from './cat.schema';
+import { JwtAuthGuard } from './../auth/jwt/jwt.guard';
 import { SuccessInterceptor } from './../common/interceptors/success.interceptor';
 import { LoginRequestDto } from './../auth/dto/login.request.dto';
 import {
@@ -6,6 +8,7 @@ import {
   Get,
   HttpCode,
   Post,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
@@ -13,6 +16,7 @@ import { AuthService } from 'src/auth/auth.service';
 import { CatsService } from './cats.service';
 import { CatRequestDto } from './dto/casts.request.dto';
 import { CatDto } from './dto/cats.dto';
+import { CurrentUser } from 'src/common/decorators/user.decorator';
 
 @UseInterceptors(SuccessInterceptor)
 @Controller('cats')
@@ -23,9 +27,10 @@ export class CatsController {
   ) {}
 
   @ApiOperation({ summary: '고양이 가져오기' })
+  @UseGuards(JwtAuthGuard)
   @Get()
-  getCurrentCat() {
-    return 'cat';
+  getCurrentCat(@CurrentUser() cat: Cat) {
+    return cat;
   }
 
   @ApiResponse({
