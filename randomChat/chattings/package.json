@@ -29,6 +29,7 @@
     "@nestjs/platform-socket.io": "^8.4.0",
     "@nestjs/websockets": "^8.4.0",
     "@types/whatwg-url": "^8.2.1",
+    "class-validator": "^0.13.2",
     "hbs": "^4.2.0",
     "mongoose": "^6.2.4",
     "reflect-metadata": "^0.1.13",
