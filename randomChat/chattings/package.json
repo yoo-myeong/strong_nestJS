@@ -26,6 +26,8 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/mongoose": "^9.0.2",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/platform-socket.io": "^8.4.0",
+    "@nestjs/websockets": "^8.4.0",
     "@types/whatwg-url": "^8.2.1",
     "hbs": "^4.2.0",
     "mongoose": "^6.2.4",
